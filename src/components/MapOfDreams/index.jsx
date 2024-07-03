@@ -4,7 +4,7 @@ import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 import goodDream from '../ui/placeholders/mapofdreams-good-border.png';
 import badDream from '../ui/placeholders/mapofdreams-bad-border.png';
-import weirdDream from '../ui/placeholders/mapofdreams-weird-border.png';
+import weirdDream from '../ui/placeholders/mapofdreams-weird-border-2.png';
 
 const dreamIcons = {
   good: new L.Icon({
