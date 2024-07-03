@@ -50,6 +50,7 @@ const MapEvents = ({ setNewDream, setIsPopupOpen }) => {
       clearTimeout(longPressTimer.current);
     },
     touchstart: (e) => {
+      e.originalEvent.preventDefault();
       longPressTimer.current = setTimeout(() => {
         const touch = e.touches[0];
         const point = map.mouseEventToLatLng(touch);
@@ -57,10 +58,12 @@ const MapEvents = ({ setNewDream, setIsPopupOpen }) => {
         setIsPopupOpen(true);
       }, longPressDuration);
     },
-    touchend: () => {
+    touchend: (e) => {
+      e.originalEvent.preventDefault();
       clearTimeout(longPressTimer.current);
     },
-    touchmove: () => {
+    touchmove: (e) => {
+      e.originalEvent.preventDefault();
       clearTimeout(longPressTimer.current);
     },
   });
@@ -117,8 +120,9 @@ const DreamTrackerMap = () => {
         style={{ height: '100%', width: '100%' }}
         maxBounds={mapBounds}
         worldCopyJump={false}
+        tap={false}
       >
-        <TileLayer url="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}" />
+        <TileLayer url={baseLayers[activeLayer]} />
         <MapEvents setNewDream={setNewDream} setIsPopupOpen={setIsPopupOpen} />
         {dreams.map((dream) => (
           <Marker
@@ -140,9 +144,6 @@ const DreamTrackerMap = () => {
             <div>Add new dream here. Lat: {newDream.lat}, Lng: {newDream.lng}</div>
           </Popup>
         )}
-        <TileLayer
-        url={baseLayers[activeLayer]}
-      />
         <ScaleControl />
       </MapContainer>
     </div>
