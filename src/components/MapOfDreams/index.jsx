@@ -82,19 +82,19 @@ const ScaleControl = () => {
   return null;
 };
 
-// const baseLayers = {
-//   Street: "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
-//   Satellite: "https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}",
-//   Topography: "https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png"
-// };
+const baseLayers = {
+  Street: "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+  Satellite: "https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}",
+  Topography: "https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png"
+};
 
-// const defaultLayer = "Satellite"
+const defaultLayer = "Satellite"
 
 const DreamTrackerMap = () => {
   const [dreams, setDreams] = useState([]);
   const [newDream, setNewDream] = useState({ type: 'good', description: '', lat: null, lng: null });
   const [mapCenter] = useState([0, 0]);
-  // const [activeLayer, setActiveLayer] = useState(defaultLayer);
+  const [activeLayer, setActiveLayer] = useState(defaultLayer);
   const [isPopupOpen, setIsPopupOpen] = useState(false);
 
   useEffect(() => {
@@ -104,6 +104,10 @@ const DreamTrackerMap = () => {
       { id: 3, type: 'weird', lat: -33.8688, lng: 151.2093, description: 'Surfing with kangaroos in Sydney' },
     ]);
   }, []);
+
+  const handleLayerChange = (newLayer) => {
+    setActiveLayer(newLayer);
+  };
 
   return (
     <div className="dream-tracker h-screen w-screen relative">
@@ -136,6 +140,9 @@ const DreamTrackerMap = () => {
             <div>Add new dream here. Lat: {newDream.lat}, Lng: {newDream.lng}</div>
           </Popup>
         )}
+        <TileLayer
+        url={baseLayers[activeLayer]}
+      />
         <ScaleControl />
       </MapContainer>
     </div>
