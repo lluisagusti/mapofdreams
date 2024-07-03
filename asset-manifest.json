@@ -1,18 +1,18 @@
 {
   "files": {
     "main.css": "/mapofdreams/static/css/main.89ee1b4c.css",
-    "main.js": "/mapofdreams/static/js/main.06de8fee.js",
+    "main.js": "/mapofdreams/static/js/main.218e3339.js",
     "static/js/215.2027e58a.chunk.js": "/mapofdreams/static/js/215.2027e58a.chunk.js",
     "static/media/mapofdreams-good-border.png": "/mapofdreams/static/media/mapofdreams-good-border.19e3b9648a225b874623.png",
     "static/media/mapofdreams-bad-border.png": "/mapofdreams/static/media/mapofdreams-bad-border.5dcf795592f1672c0eba.png",
     "static/media/mapofdreams-weird-border-2.png": "/mapofdreams/static/media/mapofdreams-weird-border-2.32cd24a98db5b6966467.png",
     "index.html": "/mapofdreams/index.html",
     "main.89ee1b4c.css.map": "/mapofdreams/static/css/main.89ee1b4c.css.map",
-    "main.06de8fee.js.map": "/mapofdreams/static/js/main.06de8fee.js.map",
+    "main.218e3339.js.map": "/mapofdreams/static/js/main.218e3339.js.map",
     "215.2027e58a.chunk.js.map": "/mapofdreams/static/js/215.2027e58a.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.89ee1b4c.css",
-    "static/js/main.06de8fee.js"
+    "static/js/main.218e3339.js"
   ]
 }
