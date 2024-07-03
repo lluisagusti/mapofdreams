@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { MapContainer, TileLayer, Marker, Popup, useMapEvents } from 'react-leaflet';
+import { MapContainer, TileLayer, Marker, Popup, useMapEvents, useMap } from 'react-leaflet';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 import goodDream from '../ui/placeholders/mapofdreams-good-border.png';
@@ -68,6 +68,20 @@ const MapEvents = ({ setNewDream, setIsPopupOpen }) => {
   return null;
 };
 
+const ScaleControl = () => {
+  const map = useMap();
+
+  useEffect(() => {
+    const scaleControl = L.control.scale().addTo(map);
+
+    return () => {
+      scaleControl.remove();
+    };
+  }, [map]);
+
+  return null;
+};
+
 // const baseLayers = {
 //   Street: "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
 //   Satellite: "https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}",
@@ -122,6 +136,7 @@ const DreamTrackerMap = () => {
             <div>Add new dream here. Lat: {newDream.lat}, Lng: {newDream.lng}</div>
           </Popup>
         )}
+        <ScaleControl />
       </MapContainer>
     </div>
   );
