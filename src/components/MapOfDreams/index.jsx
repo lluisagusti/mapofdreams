@@ -95,7 +95,7 @@ const DreamTrackerMap = () => {
     <div className="dream-tracker h-screen w-screen relative">
       <MapContainer
         center={mapCenter}
-        zoom={3}
+        zoom={2}
         style={{ height: '100%', width: '100%' }}
         maxBounds={mapBounds}
         worldCopyJump={false}
